@@ -1,16 +1,19 @@
-import { listenerCount } from 'events'
 import React from 'react'
 
+
 export interface Todo {
-    text: String;
-    complete: boolean;
+  text: String;
+  complete: boolean;
 }
+type toggleTodo = (selectedTodo: Todo) => void
 
 interface Props {
-    todo: Todo;
+  todo: Todo;
+  toggleTodo: toggleTodo;
 }
 
-export const TodoListItem: React.FC<Props> = ({ todo }) => {
+
+export const TodoListItem: React.FC<Props> = ({ todo, toggleTodo }) => {
   return (
     <li>
       <label
